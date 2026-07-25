@@ -111,8 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
   whatsappButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
       const productName = button.dataset.product || 'SkinVeda product';
-      const encodedName = encodeURIComponent(productName);
-      const url = `https://wa.me/919355293311?text=Hi%20SkinVeda,%20I'm%20interested%20in%20your%20${encodedName}`;
+      const message = `Hello SkinVeda Team! 👋\n\nI discovered your website and I'm interested in purchasing the following product:\n\n🛍️ Product: ${productName}\n\nCould you please share:\n\n• Price\n• Product availability\n• Delivery details\n• Payment options\n\nIf there are any ongoing offers or recommendations related to this product, I'd love to know as well.\n\nLooking forward to your response.\n\nThank you! 😊`;
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://wa.me/919355293311?text=${encodedMessage}`;
       window.open(url, '_blank', 'noopener,noreferrer');
       event.currentTarget.classList.add('ripple');
       setTimeout(() => event.currentTarget.classList.remove('ripple'), 500);
