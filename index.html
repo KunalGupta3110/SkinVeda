@@ -8,6 +8,7 @@
       name="description"
       content="SkinVeda presents premium skincare and haircare craftsmanship with natural ingredients, luxury manufacturing, and bespoke wellness solutions."
     />
+    <link rel="icon" type="image/png" href="assets/images/logo1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
@@ -317,6 +319,81 @@
               <button class="whatsapp-btn" data-product="Handmade Soap">Order on WhatsApp</button>
             </div>
           </article>
+          <article class="product-card reveal">
+            <div class="product-image-wrap">
+              <img src="assets/ubtan.png" alt="Ubtan" loading="lazy" />
+              <span class="handcrafted-badge">Handcrafted</span>
+            </div>
+            <div class="product-body">
+              <div class="product-topline">
+                <span class="product-pill">Skincare</span>
+                <span class="product-pill muted">Natural Blend</span>
+              </div>
+              <h3>Ubtan</h3>
+              <p>A luxurious Ayurvedic ubtan that gently exfoliates, brightens, and nourishes the skin with time-honoured botanicals and natural powders.</p>
+              <div class="product-meta">
+                <div>
+                  <span>Key Ingredients</span>
+                  <strong>Turmeric, Sandalwood, Gram Flour, Multani Mitti, Rose Petals &amp; Almond Powder</strong>
+                </div>
+                <div>
+                  <span>Best For</span>
+                  <strong>Glow, gentle exfoliation &amp; natural radiance</strong>
+                </div>
+              </div>
+              <button class="whatsapp-btn" data-product="Ubtan">Order on WhatsApp</button>
+            </div>
+          </article>
+          <article class="product-card reveal">
+            <div class="product-image-wrap">
+              <img src="assets/images/kesarchandan.png" alt="Kesar Chandan Soap" loading="lazy" />
+              <span class="handcrafted-badge">Handcrafted</span>
+            </div>
+            <div class="product-body">
+              <div class="product-topline">
+                <span class="product-pill">Handmade Soaps</span>
+                <span class="product-pill muted">Premium Blend</span>
+              </div>
+              <h3>Kesar Chandan Soap</h3>
+              <p>A luxurious handmade soap enriched with saffron (Kesar) and sandalwood (Chandan), offering deep nourishment, natural glow, and skin brightening benefits. This Ayurvedic blend promotes even skin tone and provides a cooling, soothing experience for sensitive skin.</p>
+              <div class="product-meta">
+                <div>
+                  <span>Key Ingredients</span>
+                  <strong>Saffron, Sandalwood, Coconut Oil, Shea Butter, Rose Water &amp; Turmeric</strong>
+                </div>
+                <div>
+                  <span>Best For</span>
+                  <strong>Brightening, anti-aging &amp; skin radiance</strong>
+                </div>
+              </div>
+              <button class="whatsapp-btn" data-product="Kesar Chandan Soap">Order on WhatsApp</button>
+            </div>
+          </article>
+          <article class="product-card reveal">
+            <div class="product-image-wrap">
+              <img src="assets/images/neem.png" alt="Neem Soap" loading="lazy" />
+              <span class="handcrafted-badge">Handcrafted</span>
+            </div>
+            <div class="product-body">
+              <div class="product-topline">
+                <span class="product-pill">Handmade Soaps</span>
+                <span class="product-pill muted">Cleansing Care</span>
+              </div>
+              <h3>Neem Soap</h3>
+              <p>A powerful handmade soap infused with neem extract, specifically formulated to cleanse deeply, purify the skin, and combat common skin concerns. Rich in antibacterial and anti-inflammatory properties, this Ayurvedic soap is perfect for maintaining healthy, clear, and balanced skin naturally.</p>
+              <div class="product-meta">
+                <div>
+                  <span>Key Ingredients</span>
+                  <strong>Neem Extract, Neem Oil, Turmeric, Tea Tree Oil, Coconut Oil &amp; Aloe Vera</strong>
+                </div>
+                <div>
+                  <span>Best For</span>
+                  <strong>Acne-prone skin, purification &amp; deep cleansing</strong>
+                </div>
+              </div>
+              <button class="whatsapp-btn" data-product="Neem Soap">Order on WhatsApp</button>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -569,6 +646,64 @@
 
     <button class="back-to-top" aria-label="Back to top">↑</button>
 
+    <!-- Product Detail Modal -->
+    <div class="product-modal-backdrop" id="productBackdrop"></div>
+    <div class="product-modal" id="productModal">
+      <div class="modal-content">
+        <!-- Left Column: Images -->
+        <div class="modal-left">
+          <div class="modal-image-main">
+            <img id="modalMainImage" src="" alt="Product" />
+          </div>
+          <div class="modal-gallery" id="modalGallery"></div>
+        </div>
+
+        <!-- Right Column: Details -->
+        <div class="modal-right">
+          <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+          
+          <div class="modal-header">
+            <h2 id="modalProductName"></h2>
+            <span class="modal-category" id="modalCategory"></span>
+          </div>
+
+          <div class="modal-badges">
+            <span class="modal-badge">Handmade</span>
+            <span class="modal-badge">Natural Ingredients</span>
+            <span class="modal-badge">Chemical Free</span>
+          </div>
+
+          <p class="modal-description" id="modalDescription"></p>
+
+          <!-- Ingredients -->
+          <div class="modal-section">
+            <h3>Key Ingredients</h3>
+            <div class="modal-ingredients" id="modalIngredients"></div>
+          </div>
+
+          <!-- Benefits -->
+          <div class="modal-section">
+            <h3>Benefits</h3>
+            <div class="modal-benefits" id="modalBenefits"></div>
+          </div>
+
+          <!-- How to Use -->
+          <div class="modal-section">
+            <h3>How to Use</h3>
+            <div class="modal-steps">
+              <div class="step">Wet skin</div>
+              <div class="step">Massage gently</div>
+              <div class="step">Rinse thoroughly</div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Button -->
+          <button class="modal-whatsapp-btn" id="modalWhatsAppBtn">Order on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
     <script src="js/script.js"></script>
+    <script src="js/product-modal.js"></script>
   </body>
 </html>
